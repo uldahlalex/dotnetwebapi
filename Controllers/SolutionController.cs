@@ -6,6 +6,9 @@ namespace dotnetwebapi.Controllers;
 public class SolutionController : ControllerBase
 {
     
+    //NOTICE: These solutions were made before I fixed some of exercises the night between
+    //Wednesday and Thursday. So these are for those who attempted them Wednesday:
+    
     // The link from today's lessons docs that show how to do this:
     // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
     // See the section that says "explicit parameter binding". In the exercise I described which attribute to use
