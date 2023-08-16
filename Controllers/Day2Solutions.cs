@@ -6,18 +6,11 @@ namespace dotnetwebapi.Controllers;
 [ApiController]
 public class Day2Solutions : ControllerBase
 {
-    [HttpPost]
-    [Route("/sendBodyString")]
-    public object GetStringFromBody(string myString)
-    {
-        return myString;
-    }
     
     [HttpPost]
     [Route("/sendDto")]
     public object GetStringFromBody([FromBody]MyDto dto)
     {
-        Response.StatusCode = 201;
         return dto;
     }
 
