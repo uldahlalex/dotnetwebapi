@@ -24,29 +24,36 @@ public class SolutionController : ControllerBase
     {
         return somekey;
     }
-
-    // Link to docs that show how to find header
-    // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
-    // The exercise describes what attribute to use
+    
+    //Here: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0
     [HttpGet]
-    [Route("/readHeader")]
-    public object ReadHeader([FromHeader] string headerName)
+    [Route("/setHeaderWithParamterBinding")]
+    public object SetHeaderWithParameterBinding([FromHeader]string somerandomvalue)
     {
-        //Input User-Agent in the field in Swagger to get the browser name back.
-        //This method will send that as response body
-        return Request.Headers[headerName][0];
+        return "check the http request headers";
     }
 
     
     // The exercise says you must use HttpContext, and that you specifically have to set RESPONSE and HEADER
     [HttpGet]
-    [Route("/setHeader")]
+    [Route("/setHeaderManuallyUsingContext")]
     public object SetHeader()
     {
-        //Check in brower developer tools you get the response
+       
         HttpContext.Response.Headers["RandomHeaderName"] = "RandomValue";
         return null;
     }
+
+    
+    // Can also be read using httpcontext
+    [HttpGet]
+    [Route("/readHeader")]
+    public object ReadHeader([FromHeader] string headerName)
+    {
+        return HttpContext.Request.Headers[headerName][0];
+    }
+
+
 
     // The exercise literally says just return a C# object, so just create one and return
     [HttpGet]
